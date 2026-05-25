@@ -1,4 +1,4 @@
-#include <config.h>
+#include "config.h"
 
 void setLEDs(bool r, bool y, bool g) {
     digitalWrite(LED_RED_PIN,    r ? HIGH : LOW);
@@ -111,7 +111,7 @@ void showResults() {
     printCentred("CALIBRATION", 32, GREEN, 1);
     printCentred("COMPLETE",    46, GREEN, 1);
 
-    gfx->setTextColor(GREY);
+    gfx->setTextColor(LIGHT_GREY);
     gfx->setTextSize(1);
     gfx->setCursor(38, 72);  gfx->println("Offsets:");
     gfx->setCursor(38, 84);
@@ -137,7 +137,8 @@ void runCalibration() {
     gfx->drawCircle(CX, CY, RADIUS, GREY);
     printCentred("STEP",        88,  WHITE, 3);
     printCentred("TRACKER",     114, WHITE, 3);
-    printCentred("Calibration", 150, GREEN, 1);
+    printCentred("Starting",    150, GREEN, 1);
+    printCentred("Calibration", 160, GREEN, 1);
     delay(2000);
 
     for (int step = 0; step < 3; step++) {
